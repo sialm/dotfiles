@@ -10,7 +10,7 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
-require("volume")
+-- require("volume")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -37,16 +37,6 @@ do
 end
 -- }}}
 
--- {{{ auto start stuff
--- audio
-awful.util.spawn_with_shell("xmodmap ~/.Xmodmap") -- set caps lock to modkey
-awful.util.spawn_with_shell("amixer sset Front on")     -- turn volume on
-awful.util.spawn_with_shell("amixer sset Headphone on")
-awful.util.spawn_with_shell("amixer sset PCM on")
--- screensaver/lock
-awful.util.spawn_with_shell("xscreensaver -no-splash")
--- }}}
-
 -- {{{ Variable definitions
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -57,7 +47,7 @@ home_dir = os.getenv("HOME")
 globalkeys = awful.util.table.join()
 
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/littlec8/.dotfiles/awesome/themes/cstm-apexskier/theme.lua")
+beautiful.init(home_dir .. "/.dotfiles/awesome/themes/cstm-apexskier/theme.lua")
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -165,7 +155,7 @@ myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
-   { "quit", awesome.quit }
+   { "exit", awesome.quit }
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
@@ -181,9 +171,6 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
-
-firefox_widget = widget({ type = "textbox", name = "firefox_w", align = "right" })
-firefox_widget = "Firefox"
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -253,8 +240,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
-        volume_widget,
-        firefox_widget,
+        -- volume_widget,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
@@ -273,6 +259,8 @@ root.buttons(awful.util.table.join(
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(globalkeys,
     awful.key({ modkey, "Mod1"    }, "l", function () awful.util.spawn_with_shell("xscreensaver-command -lock") end),
+    awful.key({ modkey,           }, "XF86Eject", function () awful.util.spawn_with_shell("cb-exit") end),
+    awful.key({ modkey,           }, "F12", awesome.quit ),
     awful.key({ }, "Print", function () awful.util.spawn_with_shell("xwd -root | xwdtopnm | pnmtopng > screenshot.png") end),
 
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
@@ -328,12 +316,12 @@ globalkeys = awful.util.table.join(globalkeys,
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end),
+              end)
 
     -- volume
-    awful.key({ modkey, "Control" }, "m",    vol_mute),
-    awful.key({ modkey, "Control" }, "Up",   vol_up),
-    awful.key({ modkey, "Control" }, "Down", vol_down)
+    -- awful.key({ modkey, "Control" }, "m",    vol_mute),
+    -- awful.key({ modkey, "Control" }, "Up",   vol_up),
+    -- awful.key({ modkey, "Control" }, "Down", vol_down)
 )
 
 clientkeys = awful.util.table.join(
@@ -547,3 +535,9 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
+-- {{{ auto start stuff, not the best way of doing it
+awful.util.spawn_with_shell(home_dir .. "/.dotfiles/awesome/autostart.sh amarok")
+-- }}}
+
