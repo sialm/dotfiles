@@ -8,28 +8,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-if [ -d "$HOME/.dotfiles/bin" ] ; then
-    export PATH="$HOME/.dotfiles/bin:$PATH"
-fi
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -n "$DISPLAY" ]; then
-    BROWSER=firefox
-fi
-
-if [ -d "$HOME/.virtualenvs" ] ; then
-    export WORKON_HOME="$HOME/.virtualenvs"
-    export PIP_VIRTUALENV_BASE=$WORKON_HOME
-    export PIP_RESPECT_VIRTUALENV=true
-    export VIRTUALENVWRAPPER_VIRTUALENV="virtualenv"
-fi
-if [ -d "$HOME/projects" ] ; then
-    export PROJECT_HOME="$HOME/projects"
-fi
-export REPO_PATH=boar+ssh://boar@odin.restek.wwu.edu/home/boar/repo
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc (and bash_profile) if it exists
