@@ -24,11 +24,17 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 alias 'ssh-gp'='ssh littlec8@gravelpit.housing.wwu.edu -t tmux attach -d'
+alias 'ssh-alvis'='ssh alvis -t tmux attach -d'
 alias 'ssh-jb'='ssh littlec8@juicebox.restek.wwu.edu -t startirc'
 
 alias 'ts2'='rdesktop -u littlec8 -d WWU -g 1254x1003 -T TS2 ts.restek.wwu.edu'
 
 alias 'classinfo'='xpop= $( xprop | grep --color=none "WM_CLASS\|^WM_NAME" | xmessage -file - )'
+
+cs_print() {
+    a2ps -v --landscape --columns=2 --printer=$1 -s2 $2
+}
+alias 'cs-print'=cs_print
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
