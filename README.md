@@ -1,4 +1,4 @@
-# Cameron Little's dotfiles
+# Moe's dotfiles
 
 For the real readme, check out [@holman's
 dotfiles](https://github.com/holman/dotfiles).
