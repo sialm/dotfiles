@@ -42,6 +42,13 @@ fi
 
 export EDITOR=vim
 
+
+# Get the Git branch
+plias clera=clear
+alias ll='ls -l'arse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Custom bash prompt
 #
 # Includes custom character for the prompt, path, and Git branch name.
