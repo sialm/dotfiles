@@ -55,3 +55,18 @@ j () {
     fi
 }
 
+# aliases
+alias plat='cd ~/remitly-vagrant/html/platform'
+alias port='cd ~/remitly-vagrant/html/portal'
+alias vdev='cd ~/remitly-vagrant/vagrant-dev'
+alias vssh='vagrant ssh'
+alias risk='cd ~/remitly-vagrant/html/RiskService'
+alias core='cd ~/remitly-vagrant/html/CXCore'
+alias fund='cd ~/remitly-vagrant/html/FundingService'
+alias beta='cd ~/Desktop/beta/moe/'
+alias jump='ssh moe@jump.remitly.com'
+alias ppp='mvn package && forge pkg && vagrant provision'
+alias vup='vagrant up'
+
+alias clera=clear
+alias ll='ls -l'
