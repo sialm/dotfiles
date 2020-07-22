@@ -1,0 +1,16 @@
+1. install chrome
+	a. privacy badger
+	b. ublock origin 
+	c. lastpass 
+
+2. install sublime
+
+3. install brew
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+4. run install stuff 
+
+5. install intellij
+
+6. add github keys https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
