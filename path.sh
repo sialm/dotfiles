@@ -14,3 +14,6 @@ export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 
 # opctl-host-proxy
 export PATH="/usr/local/bin/opctl-host-proxy:$PATH"
+
+# go 
+export PATH="/usr/local/go/bin/go:$PATH"

@@ -24,6 +24,7 @@ brew install maven
 brew install pip2
 brew install pip3
 pip3 install jupyter
+pip3 install supervisor
 
 # git 
 brew install git 
