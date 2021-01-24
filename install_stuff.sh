@@ -1,18 +1,21 @@
 brew update 
 brew upgrade
 
+# comment out this line
+#exit
 
-
-exit 
+# install sublime
+brew tap homebrew/cask
+brew install --cask sublime-text
 
 # php 7.2
 # brew unlink php71
-brew install php72
+# brew install php72
 
 # java 8
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8-jre
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8-jre
 
 # gradle 
 brew install gradle
@@ -49,20 +52,23 @@ eval "$(rbenv init -)"
 #install deps 
 gem install librarian-puppet
 gem install puppet
-# docker 
+
+# docker
+# install desktop https://hub.docker.com/editions/community/docker-ce-desktop-mac/
 brew install docker 
 brew install docker-compose 
 brew install docker-machine 
 brew install xhyve
 brew install docker-machine-driver-xhyve
+
 # optctl https://opctl.io/docs/setup.html
 curl -L https://github.com/opctl/opctl/releases/download/0.1.25/opctl0.1.25.darwin.tgz | tar -xzv -C /usr/local/bin
 # get forge cli https://github.com/Remitly/forge/blob/master/doc/cli.md
 
 # vagrant 
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install vagrant-manager
+#brew install --cask virtualbox
+#brew install --cask vagrant
+#brew install -- cask vagrant-manager
 
 # CLI tools
 brew install jq
